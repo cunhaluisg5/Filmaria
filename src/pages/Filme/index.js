@@ -1,22 +1,38 @@
 import React, {useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import "./filme-info.css";
 import api from "../../services/api";
 
 function Filme(){
     const {id} = useParams();
+    const navigate = useNavigate();
+
+
     const [filme, setFilme] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function loadFilme(){
             const response = await api.get(`r-api/?api=filmes/${id}`);
-            setFilme(response.data);setLoading(false);
+
+            if(response.data.length === 0){
+                // Tentou acessar com id que não existe. Redireciona para home.
+                navigate("/");
+                return;
+            }
+
+            setFilme(response.data);
+            setLoading(false);
         };
 
         loadFilme();
-    }, [id]);
+
+        return () => {
+            console.log("COMPONENTE DESMONTADO!");
+        }
+
+    }, [navigate, id]);
 
     if(loading){
         return(
@@ -28,7 +44,20 @@ function Filme(){
 
     return(
         <div className="filme-info">
-            <h1>PÁGINA DETALHE - {id}</h1>
+            <h1>{filme.nome}</h1>
+            <img src={filme.foto} alt={filme.nome}/>
+
+            <h3>Sinopse</h3>
+            {filme.sinopse}
+
+            <div className="botoes">
+                <button onClick={() => {}}>Salvar</button>
+                <button>
+                    <a target="_blank" href={`https://youtube.com/results?search_query=${filme.nome} Trailer`}>
+                        Trailer
+                    </a>
+                </button>
+            </div>
         </div>
     );
 };
