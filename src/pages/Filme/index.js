@@ -73,7 +73,7 @@ function Filme(){
             <div className="botoes">
                 <button onClick={salvaFilme}>Salvar</button>
                 <button>
-                    <a target="_blank" href={`https://youtube.com/results?search_query=${filme.nome} Trailer`}>
+                    <a target="blank" href={`https://youtube.com/results?search_query=${filme.nome} Trailer`}>
                         Trailer
                     </a>
                 </button>
