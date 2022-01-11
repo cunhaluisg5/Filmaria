@@ -1,7 +1,7 @@
 <p align="center">
-	<img alt="Filmaria" src="./public/001.png" width="33%">
-	<img alt="Filmaria" src="./public/002.png" width="33%">
-	<img alt="Filmaria" src="./public/003.png" width="33%">
+	<img alt="Filmaria" src="https://raw.githubusercontent.com/cunhaluisg5/Filmaria/main/public/001.PNG" width="33%">
+	<img alt="Filmaria" src="https://raw.githubusercontent.com/cunhaluisg5/Filmaria/main/public/002.PNG" width="33%">
+	<img alt="Filmaria" src="https://raw.githubusercontent.com/cunhaluisg5/Filmaria/main/public/003.PNG" width="33%">
 </p>
 
 ## FILMARIA
